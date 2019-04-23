@@ -69,7 +69,7 @@ namespace lab2bonus
             //    lastBirthday.AddMonths(i);
             //    i += 1;
             //}
-
+            // does this make changes?
             Console.WriteLine(lastBirthday);
         }
     }
