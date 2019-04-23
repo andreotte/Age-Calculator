@@ -6,9 +6,11 @@ namespace lab2bonus
     {
         public static void Main(string[] args)
         {
+            // Array to hold birthday in 'yyyy/mm/dd' format
             string[] date = new string[3];
             Console.WriteLine("Hello! I'm going calculate your age");
 
+            // Get birthday from user.
             while (true)
             try
             {
@@ -51,26 +53,19 @@ namespace lab2bonus
                 continue;
             }
 
+            // Convert array holding birthday to DateTime datatype
             DateTime birthday = new DateTime(Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2]));
-            Console.WriteLine(birthday);
 
-            //DateTime today = DateTime.Today;
+            int yearsOld = new DateTime(DateTime.Today.Subtract(birthday).Ticks).Year - 1;
 
-            int years = new DateTime(DateTime.Today.Subtract(birthday).Ticks).Year - 1;
+            DateTime lastBirthday = birthday.AddYears(yearsOld);
 
-            Console.WriteLine(years);
+            int daysSinceBirthday = DateTime.Today.Subtract(lastBirthday).Days;
 
-            DateTime lastBirthday = birthday.AddYears(years);
-            lastBirthday.AddMonths(4);
-
-            //int i = 1;
-            //while (lastBirthday < DateTime.Now) 
-            //{
-            //    lastBirthday.AddMonths(i);
-            //    i += 1;
-            //}
-            // does this make changes?
-            Console.WriteLine(lastBirthday);
+            // Display years and days old
+            Console.WriteLine($"You are {yearsOld} years and {daysSinceBirthday} days old.");
+            // Display seconds old
+            Console.WriteLine($"You are {Convert.ToInt16(DateTime.Today.Subtract(birthday)) / 86400} seconds old!");            
         }
     }
 }
