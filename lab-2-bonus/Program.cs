@@ -11,6 +11,7 @@ namespace lab2bonus
             Console.WriteLine("Hello! I'm going calculate your age");
 
             // Get birthday from user.
+            // TODO: write a method for this validation that takes user input as a param 
             while (true)
             try
             {
@@ -57,15 +58,14 @@ namespace lab2bonus
             DateTime birthday = new DateTime(Convert.ToInt32(date[0]), Convert.ToInt32(date[1]), Convert.ToInt32(date[2]));
 
             int yearsOld = new DateTime(DateTime.Today.Subtract(birthday).Ticks).Year - 1;
-
             DateTime lastBirthday = birthday.AddYears(yearsOld);
-
-            int daysSinceBirthday = DateTime.Today.Subtract(lastBirthday).Days;
+            int daysSinceBirthday = DateTime.Today.Subtract(lastBirthday).Days; 
+            double secondsOld = DateTime.Today.Subtract(birthday).TotalSeconds;
 
             // Display years and days old
             Console.WriteLine($"You are {yearsOld} years and {daysSinceBirthday} days old.");
             // Display seconds old
-            Console.WriteLine($"You are {Convert.ToInt16(DateTime.Today.Subtract(birthday)) / 86400} seconds old!");            
+            Console.WriteLine($"You are {secondsOld} seconds old!");            
         }
     }
 }
